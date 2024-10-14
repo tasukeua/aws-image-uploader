@@ -5,15 +5,24 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.rmi.server.UID;
+import java.util.Optional;
+import java.util.UUID;
 
-@AllArgsConstructor
-@Getter
 @Setter
+@AllArgsConstructor
 @EqualsAndHashCode
 public class User {
 
-    private UID id;
+    @Getter
+    private UUID id;
+
+    @Getter
     private String username;
+
     private String userImageLink; // S3 key
+
+    public Optional<String> getUserImageLink() {
+        return Optional.ofNullable(userImageLink);
+    }
+
 }
