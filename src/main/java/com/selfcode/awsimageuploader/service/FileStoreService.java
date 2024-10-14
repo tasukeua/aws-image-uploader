@@ -32,5 +32,4 @@ public class FileStoreService {
             throw new IllegalStateException("Failed to store file to AWS S3 Bucket", e);
         }
     }
-
 }
