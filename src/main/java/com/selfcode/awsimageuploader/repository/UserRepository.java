@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 @RequiredArgsConstructor
@@ -16,4 +17,7 @@ public class UserRepository {
         return inMemoryUserRepository.getUsers();
     }
 
+    public boolean getUser(UUID userId) {
+        return inMemoryUserRepository.getUser(userId);
+    }
 }

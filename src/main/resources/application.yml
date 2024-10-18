@@ -1,3 +1,6 @@
 spring:
   application:
    name: aws-image-uploader
+  servlet:
+    multipart:
+      max-file-size: 50MB

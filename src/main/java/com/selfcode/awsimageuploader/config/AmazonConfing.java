@@ -11,16 +11,14 @@ import org.springframework.context.annotation.Configuration;
 public class AmazonConfing {
 
     @Bean
-    public AWSCredentialsProvider amazonAWSCredentialsProvider() {
-
-        return DefaultAWSCredentialsProviderChain.getInstance();
-    }
-
-    @Bean
     public AmazonS3 s3() {
+        AWSCredentials credentials = new BasicAWSCredentials(
+                "AKIAYS2NW56WOIBNGAU6",
+                "s7fXK4XxTX2VBn2unzaT6cG8Iw3p3He2HnguYTkj"
+        );
         return AmazonS3ClientBuilder
                 .standard()
-                .withCredentials(amazonAWSCredentialsProvider())
+                .withCredentials(new AWSStaticCredentialsProvider(credentials))
                 .withRegion(Regions.US_EAST_1)
                 .build();
     }
